@@ -35,7 +35,7 @@ nav {
 }
 
 nav a img {
-    width: 300px;
+    width: 180px;
 }
 
 .form-wrapper {
@@ -170,7 +170,7 @@ form .form-help :where(label, a) {
     }
 
     nav a img {
-        width: 140px;
+        width: 150px;
     }
 
     .form-wrapper {
