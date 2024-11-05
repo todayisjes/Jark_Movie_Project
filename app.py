@@ -25,7 +25,7 @@ def init_db():
 # Halaman Home
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('homepage.html')
 
 # Halaman Register
 @app.route('/register', methods=['GET', 'POST'])
