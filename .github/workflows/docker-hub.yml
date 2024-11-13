@@ -1,0 +1,24 @@
+name: Build and Push Docker Image to Docker Hub
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build the Docker image
+        run : |
+          docker build . -t jark-movie-project-web:latest
+
+      - name: Push to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME}}" --password-stdin
+          docker tag jark-movie-project-web:latest itsjessica/jark-movie-project-web:latest
+          docker push itsjessica/jark-movie-project-web:latest
