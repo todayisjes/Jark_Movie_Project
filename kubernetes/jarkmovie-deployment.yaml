@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jarkmovie-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jarkmovie
+  template:
+    metadata:
+      labels:
+        app: jarkmovie
+    spec:
+      containers:
+      - name: jarkmovie
+        image: itsjessica/jarkmovie:1.0
+        ports:
+        - containerPort: 80
+        resources:  
+          requests:
+            memory: "128Mi"  
+            cpu: "500m"      
+          limits:
+            memory: "256Mi"  
+            cpu: "1"  
